@@ -55,32 +55,9 @@ const ListPage = ({ data, location }) => {
 
 export default ListPage
 
+/*
 export const listQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        testListData {
-          title
-          description
-          image {
-            imageId
-            baseUrl
-          }
-          items {
-            itemId
-            name
-            images {
-              imageId
-              baseUrl
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
-{/*
+{
   query {
     getList($slug: String!) {
       title
@@ -99,5 +76,8 @@ export const listQuery = graphql`
       }
     }
   }
+
+}
 `
-*/}
+*/
+

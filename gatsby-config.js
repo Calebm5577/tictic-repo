@@ -56,6 +56,16 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "gatsby-source-graphql",
+      options: {
+        //This type will containe remote shcema query type
+        typeName: "MyGraph",
+        //This is the field under which it's accessible
+        fieldName: "myGraph",
+        url: "http://localhost:4000/graphql",
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/content/pages`,
@@ -118,5 +128,6 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+
   ],
 }
