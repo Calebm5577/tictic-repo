@@ -56,15 +56,19 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-source-graphql",
+      resolve: `gatsby-source-graphql`,
       options: {
-        //This type will containe remote shcema query type
-        typeName: "MyGraph",
-        //This is the field under which it's accessible
-        fieldName: "myGraph",
-        url: "http://localhost:4000/graphql",
+        typeName: "TICTIC",
+        fieldName: "tictic",
+        url: "http://app.tictic.co:4000/",
+        createSchema: async () => {
+          const sdl = fs.readFileSync(`${__dirname}/tictic_schema.graphql`).toString()
+          return buildSchema(sdl)
+        },
       }
     },
+
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {

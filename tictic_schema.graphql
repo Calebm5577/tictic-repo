@@ -1,0 +1,935 @@
+input BrowseItemsInput {
+
+  first: Int!
+
+  skip: Int!
+
+}
+
+​
+
+input CreateUserListInput {
+
+  title: String!
+
+  description: String
+
+  userId: ID!
+
+}
+
+input DiscoverListsInput {
+
+  first: Int!
+
+  skip: Int!
+
+}
+
+​
+
+type Faq {
+
+  faqId: ID!
+
+  question: String
+
+  answer: String
+
+}
+
+​
+
+input FilterItemsInput {
+
+  includedTagIds: [ID!]!
+
+  excludedTagIds: [ID!]!
+
+  locationIds: [ID!]!
+
+  first: Int!
+
+  skip: Int!
+
+}
+
+​
+
+type FirebaseAuth {
+
+  providerId: String
+
+  userId: String
+
+  authTime: Int
+
+  issuedAt: Int
+
+  expiredAt: Int
+
+}
+
+​
+
+type Granularity {
+
+  id: Int!
+
+  name: String
+
+}
+
+​
+
+type Image {
+
+  imageId: ID!
+
+  baseUrl: String
+
+  folderName: String
+
+  fileName: String
+
+  tags: String
+
+  fullUrl: String
+
+  thumbUrl: String
+
+  cardUrl: String
+
+  dynamicUrl: String
+
+  creditLink: String
+
+}
+
+​
+
+type ImageEdge {
+
+  index: Int
+
+  node: Image
+
+}
+
+​
+
+type ImagesConnection {
+
+  edges: [ImageEdge]
+
+  nodes: [Image]
+
+  pageInfo: PageInfo
+
+  totalCount: Int
+
+}
+
+​
+
+type Item {
+
+  itemId: ID!
+
+  name: String
+
+  nameLocal: String
+
+  nameOthers: String
+
+  slug: String
+
+  description: String
+
+  address: String
+
+  cardImage: Image
+
+  cardLocation: String
+
+  images: [Image]!
+
+  locations: [Location]!
+
+  tags: [Tag]!
+
+  links: [Link]!
+
+  mapLinks: [MapLink]
+
+  granularity: Granularity
+
+  granularityNumber: Int
+
+  tier: Int
+
+  isPublic: Boolean
+
+  isExist: Boolean
+
+  isLocation: Int
+
+  isPrivateBusiness: Int
+
+  itemStatus: Boolean
+
+  latitude: Float
+
+  longitude: Float
+
+  createdBy: User
+
+  lists: [List]!
+
+  myStatus: UserItemStatus
+
+  statusByProfileUser: UserItemStatus
+
+  usersInteracted: [User]
+
+}
+
+​
+
+type ItemEdge {
+
+  index: Int
+
+  node: Item
+
+}
+
+​
+
+input ItemInput {
+
+  itemId: String
+
+  name: String
+
+  nameLocal: String
+
+  nameOthers: String
+
+  tier: Int
+
+  granularity: Int
+
+  existence: Boolean
+
+  description1: String
+
+  description1Attribution: String
+
+  description2: String
+
+  description2Attribution: String
+
+  cost: String
+
+  address: String
+
+  location: String
+
+  country: String
+
+  mapData: String
+
+  latitude: String
+
+  longitude: String
+
+  isPublic: Boolean
+
+  isExist: Boolean
+
+  privateBusiness: Int
+
+  isLocation: Int
+
+  status: Boolean
+
+  locationIds: [String]
+
+  tagIds: [String]
+
+}
+
+​
+
+type ItemMutationResponse implements MutationResponse {
+
+  code: Int!
+
+  success: Boolean!
+
+  message: String!
+
+  item: Item
+
+  user: User
+
+}
+
+​
+
+type ItemsConnection {
+
+  edges: [ItemEdge]
+
+  nodes: [Item]
+
+  pageInfo: PageInfo
+
+  totalCount: Int
+
+}
+
+​
+
+type ItemsResponse {
+
+  items: [Item!]!
+
+  hasMore: Boolean!
+
+}
+
+​
+
+input ItemToListInput {
+
+  itemId: ID
+
+  listId: ID
+
+  itemIds: [ID]
+
+}
+
+​
+
+type ItemToListMutationResponse implements MutationResponse {
+
+  code: Int!
+
+  success: Boolean!
+
+  message: String!
+
+  item: Item
+
+  list: List
+
+}
+
+​
+
+type Link {
+
+  linkId: ID!
+
+  type: LinkType
+
+  url: String
+
+}
+
+​
+
+enum LinkType {
+
+  OFFICIAL
+
+  OFFICIAL_TOURISM
+
+  INSTAGRAM
+
+  INSTAGRAM_EXPLORE
+
+  FACEBOOK
+
+  TWITTER
+
+  WIKIPEDIA
+
+  COMMERCIAL
+
+  INFO
+
+  SOURCE
+
+  OTHERS
+
+}
+
+​
+
+type List {
+
+  listId: ID!
+
+  title: String
+
+  slug: String
+
+  description: String
+
+  image: Image
+
+  tier: Int
+
+  isPublic: Boolean!
+
+  itemsCount: Int
+
+  locations: [Location]!
+
+  createdBy: User
+
+  items: [Item]!
+
+}
+
+​
+
+type ListEdge {
+
+  index: Int
+
+  node: List
+
+}
+
+​
+
+input ListItemsInput {
+
+  listId: ID!
+
+  first: Int!
+
+  skip: Int!
+
+}
+
+​
+
+type ListMutationResponse implements MutationResponse {
+
+  code: Int!
+
+  success: Boolean!
+
+  message: String!
+
+  list: List
+
+  user: User
+
+}
+
+​
+
+type ListsConnection {
+
+  edges: [ListEdge]
+
+  nodes: [List]
+
+  pageInfo: PageInfo
+
+  totalCount: Int
+
+}
+
+​
+
+input ListsInput {
+
+  first: Int
+
+  skip: Int
+
+  wipDiscoverLists: Boolean
+
+}
+
+​
+
+type ListsResponse {
+
+  lists: [List!]!
+
+  hasMore: Boolean!
+
+}
+
+​
+
+type Location {
+
+  locationId: ID!
+
+  name: String
+
+  nameOther: String
+
+  nameDisplay: String
+
+  nameLocal: String
+
+  granularity: Int
+
+  tier: Int
+
+  country: String
+
+}
+
+​
+
+type LocationsResponse {
+
+  locations: [Location!]!
+
+  hasMore: Boolean!
+
+}
+
+​
+
+type MapLink {
+
+  link: String
+
+  label: String
+
+}
+
+​
+
+input MarkItemInput {
+
+  itemId: ID!
+
+  status: UserItemStatus!
+
+}
+
+​
+
+type MarkItemMutationResponse implements MutationResponse {
+
+  code: Int!
+
+  success: Boolean!
+
+  message: String!
+
+  itemId: String
+
+  item: Item
+
+  user: User
+
+}
+
+​
+
+type Mutation {
+
+  _empty: String
+
+  # addUserFeedback(input: UserFeedbackInput!): SimpleMutationResponse
+
+  # pushNotificationDeviceToken(
+
+  #   input: PushNotificationDeviceTokenInput
+
+  # ): SimpleMutationResponse
+
+  # createUserList(input: CreateUserListInput!): ListMutationResponse
+
+  # updateUserList(input: UpdateUserListInput!): ListMutationResponse
+
+  # copyListToMyList(input: UpdateUserListInput!): ListMutationResponse
+
+  # deleteUserList(listId: ID!): ListMutationResponse
+
+  # assignItemToList(input: ItemToListInput): ItemToListMutationResponse
+
+  # removeItemFromList(input: ItemToListInput): ItemToListMutationResponse
+
+  # markItem(input: MarkItemInput!): MarkItemMutationResponse
+
+  # createItem(input: ItemInput!): ItemMutationResponse
+
+  # updateItem(input: ItemInput!): ItemMutationResponse
+
+  # mutateItem(input: ItemInput!): ItemMutationResponse
+
+  # clearUserData: SimpleMutationResponse
+
+  # deleteUserAccount: SimpleMutationResponse
+
+  # assignRole(input: String, role: String): SimpleMutationResponse
+
+  # makeUsersToAtleastContributor: SimpleMutationResponse
+
+  # syncUsers: SimpleMutationResponse
+
+}
+
+​
+
+interface MutationResponse {
+
+  code: Int!
+
+  success: Boolean!
+
+  message: String!
+
+}
+
+​
+
+type PageInfo {
+
+  endIndex: Int
+
+  hasNextPage: Boolean
+
+  hasPreviousPage: Boolean
+
+  startIndex: Int
+
+}
+
+​
+
+input PushNotificationDeviceTokenInput {
+
+  systemName: String
+
+  systemVersion: String
+
+  deviceName: String
+
+  deviceId: String
+
+  fcmToken: String
+
+}
+
+​
+
+type Query {
+
+  _empty: String
+
+  # faqs: [Faq]
+
+  # images(input: SearchImagesInput): ImagesConnection
+
+  # discoverLists(input: DiscoverListsInput!): ListsResponse
+
+  # lists(input: ListsInput): ListsConnection
+
+  # userCreatedLists(input: UserCreatedListsInput): ListsResponse
+
+  getList(listId: ID!): List
+
+  # listItems(input: ListItemsInput): ItemsResponse
+
+  # browseItems(input: BrowseItemsInput): ItemsResponse
+
+  # searchItems(input: SearchItemsInput): ItemsResponse
+
+  # filterItems(input: FilterItemsInput): ItemsResponse
+
+  # userInteractedItems(input: UserInteractedItemsInput): ItemsResponse
+
+  getItem(itemId: ID!): Item
+
+  # items(input: SearchItemsInput): ItemsConnection
+
+  # searchLocations(input: SearchLocationsInput): LocationsResponse
+
+  # suggestedLocations: [Location]
+
+  # userInteractedItemsLocations(userId: ID!): [Location]
+
+  # tags: [Tag]
+
+  # userInteractedItemsTags(userId: ID!): [Tag]
+
+  # me: User
+
+  # user(userId: String): User
+
+  # auth: FirebaseAuth
+
+  # users: [User]
+
+  # appUsers(input: UsersInput): UsersConnection
+
+}
+
+​
+
+input SearchImagesInput {
+
+  first: Int
+
+  skip: Int
+
+  query: String
+
+}
+
+​
+
+input SearchItemsInput {
+
+  query: String
+
+  first: Int
+
+  skip: Int
+
+  hasNoImages: Boolean
+
+  locationId: String
+
+}
+
+​
+
+input SearchLocationsInput {
+
+  query: String!
+
+  first: Int!
+
+  skip: Int!
+
+}
+
+​
+
+type SimpleMutationResponse implements MutationResponse {
+
+  code: Int!
+
+  success: Boolean!
+
+  message: String!
+
+  token: String
+
+}
+
+​
+
+type Tag {
+
+  tagId: ID!
+
+  name: String!
+
+  description: String
+
+  displayOrder: Int!
+
+  groupOrder: Int!
+
+}
+
+​
+
+input UpdateUserListInput {
+
+  listId: ID!
+
+  title: String!
+
+  description: String
+
+  userId: ID!
+
+}
+
+​
+
+type User {
+
+  userId: ID!
+
+  name: String
+
+  email: String
+
+  avatar: String
+
+  uid: ID
+
+  displayName: String
+
+  role: String
+
+  lastSignInTime: String
+
+  creationTime: String
+
+  profiles: [UserProfiles]!
+
+  interactedItemsCount: Int
+
+  tickedItemsCount: Int
+
+  targetItemsCount: Int
+
+  passedItemsCount: Int
+
+  interactedItemsCountriesCount: Int
+
+  interactedItems: [Item]
+
+}
+
+​
+
+input UserCreatedListsInput {
+
+  userId: ID!
+
+  first: Int!
+
+  skip: Int!
+
+}
+
+​
+
+type UserEdge {
+
+  index: Int
+
+  node: User
+
+}
+
+​
+
+input UserFeedbackInput {
+
+  feedback: String!
+
+  name: String
+
+  contactInfo: String
+
+}
+
+​
+
+input UserInteractedItemsInput {
+
+  userId: ID!
+
+  ticed: Boolean
+
+  target: Boolean
+
+  passed: Boolean
+
+  locationIds: [ID!]
+
+  includedTags: [ID!]
+
+  first: Int!
+
+  skip: Int!
+
+}
+
+​
+
+enum UserItemStatus {
+
+  TICKED
+
+  TARGET
+
+  PASS
+
+  NONE
+
+}
+
+​
+
+type UserProfiles {
+
+  userProfileid: ID!
+
+  type: UserProfileType
+
+  uid: String
+
+  name: String
+
+  avatar: String
+
+  email: String
+
+  data: String
+
+}
+
+​
+
+enum UserProfileType {
+
+  FACEBOOK
+
+  GOOGLE
+
+  INSTAGRAM
+
+  EMAIL_PASSWORD
+
+}
+
+​
+
+type UsersConnection {
+
+  edges: [UserEdge]
+
+  nodes: [User]
+
+  pageInfo: PageInfo
+
+  totalCount: Int
+
+}
+
+​
+
+input UsersInput {
+
+  first: Int
+
+  skip: Int
+
+  query: String
+
+}
