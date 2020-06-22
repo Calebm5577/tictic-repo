@@ -15,7 +15,7 @@ module.exports = {
       options: {
         typeName: "TICTIC",
         fieldName: "tictic",
-        url: "https://app.tictic.co:4000",
+        url: "http://app.tictic.co:4000/",
         createSchema: async () => {
           const sdl = fs.readFileSync(`${__dirname}/tictic_schema.graphql`).toString()
           return buildSchema(sdl)

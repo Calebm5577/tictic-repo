@@ -16,7 +16,7 @@ const ListPage = ({ data, location }) => {
       TODO -- SET UP SLUGS
   */}
   const siteTitle = data.site.siteMetadata.title
-
+  console.log(data)
   return (
     <Layout location={location} title={siteTitle}>
       {/*
@@ -57,11 +57,10 @@ const ListPage = ({ data, location }) => {
 
 export default ListPage
 
-/*
 export const listQuery = graphql`
 {
-  query {
-    getList($slug: String!) {
+  tictic {
+    getList(listId: "3f204bad-f0d5-48c5-938b-05c39822a9c3") {
       title
       description
       image {
@@ -78,8 +77,5 @@ export const listQuery = graphql`
       }
     }
   }
-
 }
 `
-*/
-
