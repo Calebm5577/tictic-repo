@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
 const ListPage = ({ data, location }) => {
-  {/*const list = data.getList*/}
+  const list = data.tictic.getList
   {/* 
       THIS IS TEST DATA 
       REMEMBER TO DELETE LATER
@@ -16,15 +16,13 @@ const ListPage = ({ data, location }) => {
       TODO -- SET UP SLUGS
   */}
   const siteTitle = data.site.siteMetadata.title
+  console.log(data)
   return (
     <Layout location={location} title={siteTitle}>
-      {/*
       <SEO
         title={list.title}
         description={list.description}
       />
-      */}
-      {/*
       <article>
         <header>
           <img src={list.image.baseUrl + list.image.imageId} alt={list.title} />
@@ -49,15 +47,20 @@ const ListPage = ({ data, location }) => {
           <h3>{name}</h3>
         </div>
       ))}
-      */}
     </Layout>
   )
 }
 
 export default ListPage
 
-export const listQuery = graphql`
+export const query = graphql`
 {
+  site {
+    siteMetadata {
+      title
+    }
+  }
+
   tictic {
     getList(listId: "3f204bad-f0d5-48c5-938b-05c39822a9c3") {
       title
