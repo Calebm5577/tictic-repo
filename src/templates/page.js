@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
 const PageTemplate = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark
+  {/*const post = data.markdownRemark*/}
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
 
@@ -16,6 +16,7 @@ const PageTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
+      {/*
       <article>
         <header>
           <h1
@@ -70,12 +71,14 @@ const PageTemplate = ({ data, pageContext, location }) => {
           </li>
         </ul>
       </nav>
+      */}
     </Layout>
   )
 }
 
 export default PageTemplate
 
+{/*
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
@@ -95,3 +98,4 @@ export const pageQuery = graphql`
     }
   }
 `
+*/}

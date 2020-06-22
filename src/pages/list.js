@@ -16,14 +16,16 @@ const ListPage = ({ data, location }) => {
       TODO -- SET UP SLUGS
   */}
   const siteTitle = data.site.siteMetadata.title
-  const list = data.site.siteMetadata.testListData
 
   return (
     <Layout location={location} title={siteTitle}>
+      {/*
       <SEO
         title={list.title}
         description={list.description}
       />
+      */}
+      {/*
       <article>
         <header>
           <img src={list.image.baseUrl + list.image.imageId} alt={list.title} />
@@ -48,7 +50,7 @@ const ListPage = ({ data, location }) => {
           <h3>{name}</h3>
         </div>
       ))}
-
+      */}
     </Layout>
   )
 }

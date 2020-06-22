@@ -6,8 +6,6 @@ input BrowseItemsInput {
 
 }
 
-​
-
 input CreateUserListInput {
 
   title: String!
@@ -26,8 +24,6 @@ input DiscoverListsInput {
 
 }
 
-​
-
 type Faq {
 
   faqId: ID!
@@ -37,8 +33,6 @@ type Faq {
   answer: String
 
 }
-
-​
 
 input FilterItemsInput {
 
@@ -54,8 +48,6 @@ input FilterItemsInput {
 
 }
 
-​
-
 type FirebaseAuth {
 
   providerId: String
@@ -70,8 +62,6 @@ type FirebaseAuth {
 
 }
 
-​
-
 type Granularity {
 
   id: Int!
@@ -79,8 +69,6 @@ type Granularity {
   name: String
 
 }
-
-​
 
 type Image {
 
@@ -106,8 +94,6 @@ type Image {
 
 }
 
-​
-
 type ImageEdge {
 
   index: Int
@@ -115,8 +101,6 @@ type ImageEdge {
   node: Image
 
 }
-
-​
 
 type ImagesConnection {
 
@@ -129,8 +113,6 @@ type ImagesConnection {
   totalCount: Int
 
 }
-
-​
 
 type Item {
 
@@ -194,8 +176,6 @@ type Item {
 
 }
 
-​
-
 type ItemEdge {
 
   index: Int
@@ -203,8 +183,6 @@ type ItemEdge {
   node: Item
 
 }
-
-​
 
 input ItemInput {
 
@@ -260,8 +238,6 @@ input ItemInput {
 
 }
 
-​
-
 type ItemMutationResponse implements MutationResponse {
 
   code: Int!
@@ -276,8 +252,6 @@ type ItemMutationResponse implements MutationResponse {
 
 }
 
-​
-
 type ItemsConnection {
 
   edges: [ItemEdge]
@@ -290,8 +264,6 @@ type ItemsConnection {
 
 }
 
-​
-
 type ItemsResponse {
 
   items: [Item!]!
@@ -299,8 +271,6 @@ type ItemsResponse {
   hasMore: Boolean!
 
 }
-
-​
 
 input ItemToListInput {
 
@@ -311,8 +281,6 @@ input ItemToListInput {
   itemIds: [ID]
 
 }
-
-​
 
 type ItemToListMutationResponse implements MutationResponse {
 
@@ -328,8 +296,6 @@ type ItemToListMutationResponse implements MutationResponse {
 
 }
 
-​
-
 type Link {
 
   linkId: ID!
@@ -339,8 +305,6 @@ type Link {
   url: String
 
 }
-
-​
 
 enum LinkType {
 
@@ -368,8 +332,6 @@ enum LinkType {
 
 }
 
-​
-
 type List {
 
   listId: ID!
@@ -396,8 +358,6 @@ type List {
 
 }
 
-​
-
 type ListEdge {
 
   index: Int
@@ -405,8 +365,6 @@ type ListEdge {
   node: List
 
 }
-
-​
 
 input ListItemsInput {
 
@@ -417,8 +375,6 @@ input ListItemsInput {
   skip: Int!
 
 }
-
-​
 
 type ListMutationResponse implements MutationResponse {
 
@@ -434,8 +390,6 @@ type ListMutationResponse implements MutationResponse {
 
 }
 
-​
-
 type ListsConnection {
 
   edges: [ListEdge]
@@ -448,8 +402,6 @@ type ListsConnection {
 
 }
 
-​
-
 input ListsInput {
 
   first: Int
@@ -460,8 +412,6 @@ input ListsInput {
 
 }
 
-​
-
 type ListsResponse {
 
   lists: [List!]!
@@ -469,8 +419,6 @@ type ListsResponse {
   hasMore: Boolean!
 
 }
-
-​
 
 type Location {
 
@@ -492,8 +440,6 @@ type Location {
 
 }
 
-​
-
 type LocationsResponse {
 
   locations: [Location!]!
@@ -501,8 +447,6 @@ type LocationsResponse {
   hasMore: Boolean!
 
 }
-
-​
 
 type MapLink {
 
@@ -512,8 +456,6 @@ type MapLink {
 
 }
 
-​
-
 input MarkItemInput {
 
   itemId: ID!
@@ -521,8 +463,6 @@ input MarkItemInput {
   status: UserItemStatus!
 
 }
-
-​
 
 type MarkItemMutationResponse implements MutationResponse {
 
@@ -539,8 +479,6 @@ type MarkItemMutationResponse implements MutationResponse {
   user: User
 
 }
-
-​
 
 type Mutation {
 
@@ -586,8 +524,6 @@ type Mutation {
 
 }
 
-​
-
 interface MutationResponse {
 
   code: Int!
@@ -597,8 +533,6 @@ interface MutationResponse {
   message: String!
 
 }
-
-​
 
 type PageInfo {
 
@@ -611,8 +545,6 @@ type PageInfo {
   startIndex: Int
 
 }
-
-​
 
 input PushNotificationDeviceTokenInput {
 
@@ -627,8 +559,6 @@ input PushNotificationDeviceTokenInput {
   fcmToken: String
 
 }
-
-​
 
 type Query {
 
@@ -682,8 +612,6 @@ type Query {
 
 }
 
-​
-
 input SearchImagesInput {
 
   first: Int
@@ -693,8 +621,6 @@ input SearchImagesInput {
   query: String
 
 }
-
-​
 
 input SearchItemsInput {
 
@@ -710,8 +636,6 @@ input SearchItemsInput {
 
 }
 
-​
-
 input SearchLocationsInput {
 
   query: String!
@@ -721,8 +645,6 @@ input SearchLocationsInput {
   skip: Int!
 
 }
-
-​
 
 type SimpleMutationResponse implements MutationResponse {
 
@@ -735,8 +657,6 @@ type SimpleMutationResponse implements MutationResponse {
   token: String
 
 }
-
-​
 
 type Tag {
 
@@ -752,8 +672,6 @@ type Tag {
 
 }
 
-​
-
 input UpdateUserListInput {
 
   listId: ID!
@@ -765,8 +683,6 @@ input UpdateUserListInput {
   userId: ID!
 
 }
-
-​
 
 type User {
 
@@ -804,8 +720,6 @@ type User {
 
 }
 
-​
-
 input UserCreatedListsInput {
 
   userId: ID!
@@ -816,8 +730,6 @@ input UserCreatedListsInput {
 
 }
 
-​
-
 type UserEdge {
 
   index: Int
@@ -825,8 +737,6 @@ type UserEdge {
   node: User
 
 }
-
-​
 
 input UserFeedbackInput {
 
@@ -837,8 +747,6 @@ input UserFeedbackInput {
   contactInfo: String
 
 }
-
-​
 
 input UserInteractedItemsInput {
 
@@ -860,8 +768,6 @@ input UserInteractedItemsInput {
 
 }
 
-​
-
 enum UserItemStatus {
 
   TICKED
@@ -873,8 +779,6 @@ enum UserItemStatus {
   NONE
 
 }
-
-​
 
 type UserProfiles {
 
@@ -894,8 +798,6 @@ type UserProfiles {
 
 }
 
-​
-
 enum UserProfileType {
 
   FACEBOOK
@@ -908,8 +810,6 @@ enum UserProfileType {
 
 }
 
-​
-
 type UsersConnection {
 
   edges: [UserEdge]
@@ -921,8 +821,6 @@ type UsersConnection {
   totalCount: Int
 
 }
-
-​
 
 input UsersInput {
 
