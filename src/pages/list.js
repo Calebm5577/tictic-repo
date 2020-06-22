@@ -16,7 +16,6 @@ const ListPage = ({ data, location }) => {
       TODO -- SET UP SLUGS
   */}
   const siteTitle = data.site.siteMetadata.title
-  console.log(data)
   return (
     <Layout location={location} title={siteTitle}>
       {/*
