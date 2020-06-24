@@ -19,7 +19,7 @@ module.exports = {
       options: {
         typeName: "TICTIC",
         fieldName: "tictic",
-        url: process.env.API_SERVER_URL,
+        url: "http://app.tictic.co:4000/",
         createSchema: async () => {
           const sdl = fs.readFileSync(`${__dirname}/tictic_schema.graphql`).toString()
           return buildSchema(sdl)
@@ -53,6 +53,12 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
   ],
 }
