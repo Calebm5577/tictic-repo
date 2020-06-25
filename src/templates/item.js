@@ -2,14 +2,18 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
-const ItemPage = ({ data, location }) => {
+const ItemTemplate = ({ data, location }) => {
   const item = data.tictic.getItem
   const siteTitle = data.site.siteMetadata.title
-  console.log(data)
   return (
     <Layout location={location} title={siteTitle}>
+      <SEO
+        title={item.title}
+        description={item.description}
+      />
       <article>
         <header>
           <h1
@@ -26,18 +30,18 @@ const ItemPage = ({ data, location }) => {
             marginBottom: rhythm(1),
           }}
         />
-        </article>
-        <img src={item.images[0].baseUrl + item.images[0].imageId} alt="" />
-        <h3>{item.name}</h3>
-        <p>{item.description}</p>
+      </article>
+      <img src={item.images[0].baseUrl + item.images[0].imageId} alt="" />
+      <h3>{item.name}</h3>
+      <p>{item.description}</p>
     </Layout>
   )
 }
 
-export default ItemPage
+export default ItemTemplate
 
 export const query = graphql`
-{
+query($slug: ID!) {
   site {
     siteMetadata {
       title
@@ -45,13 +49,13 @@ export const query = graphql`
   }
 
   tictic {
-    getItem(itemId: "16df4e41-76c5-480e-b7ad-f828e82aad93") {
-      description
+    getItem(itemId: $slug) {
       name
+      description
       slug
       images {
-        baseUrl
         imageId
+        baseUrl
       }
       itemId
     }

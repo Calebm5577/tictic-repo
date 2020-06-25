@@ -22,15 +22,33 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      getItem(itemId: "16df4e41-76c5-480e-b7ad-f828e82aad93") {
+        description
+        name
+        slug
+        images {
+          baseUrl
+          imageId
+        }
+        itemId
+      }
     }
   }
   `)
   const id = result.data.tictic.getList.listId
+  const itemId = result.data.tictic.getItem.itemId
   createPage({
     path: id,
     component: path.resolve(`./src/templates/list.js`),
     context: {
       slug: id,
+    },
+  })
+  createPage({
+    path: itemId,
+    component: path.resolve(`./src/templates/item.js`),
+    context: {
+      slug: itemId,
     },
   })
 }
