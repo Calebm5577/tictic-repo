@@ -7,14 +7,14 @@ import { rhythm } from "../utils/typography"
 
 const ListPage = ({ data, location }) => {
   const list = data.tictic.getList
-  {/* 
+  /* 
       THIS IS TEST DATA 
       REMEMBER TO DELETE LATER
       IN SITEMETADATA gatsby-config.js 
 
       TODO -- MOVE THIS PAGE TO A TEMPLATE
       TODO -- SET UP SLUGS
-  */}
+  */
   const siteTitle = data.site.siteMetadata.title
   console.log(data)
   return (

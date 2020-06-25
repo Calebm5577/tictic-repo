@@ -26,38 +26,11 @@ module.exports = {
         },
       }
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        
-      },
-    },
-    `gatsby-plugin-feed`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `tictic`,
-        short_name: `GatsbyJS`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-      },
-    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages/`,
       },
     },
   ],
