@@ -5,18 +5,9 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
-const ListPage = ({ data, location }) => {
+const ListTemplate = ({ data, location }) => {
   const list = data.tictic.getList
-  /* 
-      THIS IS TEST DATA 
-      REMEMBER TO DELETE LATER
-      IN SITEMETADATA gatsby-config.js 
-
-      TODO -- MOVE THIS PAGE TO A TEMPLATE
-      TODO -- SET UP SLUGS
-  */
   const siteTitle = data.site.siteMetadata.title
-  console.log(data)
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -51,10 +42,10 @@ const ListPage = ({ data, location }) => {
   )
 }
 
-export default ListPage
+export default ListTemplate
 
 export const query = graphql`
-{
+query($slug: ID!) {
   site {
     siteMetadata {
       title
@@ -62,7 +53,7 @@ export const query = graphql`
   }
 
   tictic {
-    getList(listId: "3f204bad-f0d5-48c5-938b-05c39822a9c3") {
+    getList(listId: $slug) {
       title
       description
       image {

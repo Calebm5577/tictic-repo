@@ -11,7 +11,7 @@ const PageIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Link to = "/item">Sample Item</Link><br></br>
-      <Link to = "/list">Sample List</Link>
+      <Link to = "/3f204bad-f0d5-48c5-938b-05c39822a9c3">Sample List</Link>
     </Layout>
   )
 }
