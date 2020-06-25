@@ -32,6 +32,18 @@ exports.createPages = async ({ graphql, actions }) => {
         }
         itemId
       }
+      items(input:{first:1000, skip: 0}){
+        nodes{
+          itemId
+          name
+          slug
+          description
+          images {
+            baseUrl
+          }
+        }
+        totalCount
+      }
     }
   }
   `)
@@ -51,4 +63,13 @@ exports.createPages = async ({ graphql, actions }) => {
       slug: itemId,
     },
   })
+  /*result.data.tictic.items.forEach(({ node }) => {
+    createPage({
+      path: node.slug,
+      component: path.resolve(`./src/templates/item.js`),
+      context: {
+        slug: node.fields.slug,
+      },
+    })
+  })*/
 }
