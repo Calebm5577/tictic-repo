@@ -47,17 +47,17 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   }
   `)
-  const id = result.data.tictic.getList.listId
+  const listId = result.data.tictic.getList.listId
   const itemId = result.data.tictic.getItem.itemId
   createPage({
-    path: id,
+    path: "list/" + listId,
     component: path.resolve(`./src/templates/list.js`),
     context: {
-      slug: id,
+      slug: listId,
     },
   })
   createPage({
-    path: itemId,
+    path: "item/" + itemId,
     component: path.resolve(`./src/templates/item.js`),
     context: {
       slug: itemId,
@@ -71,5 +71,17 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: result.data.tictic.items.nodes[i].itemId,
       },
     })
+  }
+}
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+  if(page.path.match(/^\/item/)) {
+    page.matchPath = "/item/*"
+    createPage(page)
+  }
+  if(page.path.match(/^\/list/)) {
+    page.matchPath = "/list/*"
+    createPage(page)
   }
 }
