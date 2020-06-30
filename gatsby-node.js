@@ -32,7 +32,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
         itemId
       }
-      items(input:{first:1000, skip: 0}){
+      items(input:{first:1, skip: 0}){
         nodes {
           itemId
           name
@@ -63,7 +63,7 @@ exports.createPages = async ({ graphql, actions }) => {
       slug: itemId,
     },
   })
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 1; i++) {
     createPage({
       path: result.data.tictic.items.nodes[i].itemId,
       component: path.resolve(`./src/templates/item.js`),
@@ -76,12 +76,12 @@ exports.createPages = async ({ graphql, actions }) => {
 
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions
-  if(page.path.match(/^\/item/)) {
-    page.matchPath = "/item/*"
+  if(page.path.match(/^\/items/)) {
+    page.matchPath = "/items/*"
     createPage(page)
   }
-  if(page.path.match(/^\/list/)) {
-    page.matchPath = "/list/*"
+  if(page.path.match(/^\/lists/)) {
+    page.matchPath = "/lists/*"
     createPage(page)
   }
 }

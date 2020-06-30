@@ -20,10 +20,6 @@ module.exports = {
         typeName: "TICTIC",
         fieldName: "tictic",
         url: process.env.API_SERVER_URL,
-        createSchema: async () => {
-          const sdl = fs.readFileSync(`${__dirname}/tictic_schema.graphql`).toString()
-          return buildSchema(sdl)
-        },
       }
     },
     `gatsby-plugin-react-helmet`,
