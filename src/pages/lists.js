@@ -2,26 +2,26 @@ import React from 'react';
 import { graphql } from 'gatsby'
 import { Router } from "@reach/router";
 
-import ItemComponent from "../components/item-component"
+import ListComponent from "../components/list-component"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Item = ({ data, location }) => {
+const List = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
     <div>
       <Layout location={location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Router basepath="/item">
-          <ItemComponent path="/:itemId" />
+        <SEO title="Lists" />
+        <Router basepath="/lists">
+          <ListComponent path="/:listId" />
         </Router>
       </Layout>
     </div>
   )
 }
 
-export default Item
+export default List
 
 export const pageQuery = graphql`
   query {
