@@ -8,6 +8,12 @@ import { rhythm } from "../utils/typography"
 const ItemTemplate = ({ data, location }) => {
   const item = data.tictic.getItem
   const siteTitle = data.site.siteMetadata.title
+  let imageSrc = ""
+  if (item.images[0] === undefined) {
+    imageSrc = "./globe.jpg"
+  } else {
+    imageSrc = item.images[0].baseUrl + item.images[0].imageId
+  }
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -31,7 +37,7 @@ const ItemTemplate = ({ data, location }) => {
           }}
         />
       </article>
-      <img src={item.images[0].baseUrl + item.images[0].imageId} alt="" />
+      <img src = {imageSrc} alt="" />
       <h3>{item.name}</h3>
       <p>{item.description}</p>
     </Layout>
