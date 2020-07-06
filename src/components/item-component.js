@@ -38,6 +38,7 @@ const ItemComponent = (prop) => {
           }}
         />
       </article>
+      
       <img src={(data && data.getItem.images[0].baseUrl) + (data && data.getItem.images[0].imageId)} alt="" />
       <h3>{data && data.getItem.name}</h3>
       <p>{data && data.getItem.description}</p>

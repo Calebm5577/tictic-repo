@@ -2,7 +2,7 @@ const fs = require("fs")
 const { buildSchema, buildClientSchema } = require("graphql")
 
 require("dotenv").config({
-  path: `.env`,
+  path: `.env.development`,
 })
 
 module.exports = {
