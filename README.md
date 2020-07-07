@@ -97,3 +97,10 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default)
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+## Docker
+
+docker build . --tag tictic-gatsby:0.0.1
+docker ps
+docker stop 924d7cc30b9f //container_id
+docker run -d -p 9000:9000 tictic-gatsby:0.0.1
