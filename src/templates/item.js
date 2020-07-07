@@ -39,7 +39,24 @@ const ItemTemplate = ({ data, location }) => {
       </article>
       <img src = {imageSrc} alt="" />
       <h3>{item.name}</h3>
+      <h3>{item.nameOthers}</h3>
+      <h4>{item.cardLocation}</h4>
       <p>{item.description}</p>
+      <h3>Tags:</h3>
+      {item.tags.map(({ tagId, name }) => (
+        <div key={tagId}>
+          <span style={{padding: "1px 9px 2px",
+                        fontSize: "20px",
+                        fontWeight: "bold",
+                        whiteSpace: "nowrap",
+                        color: "#ffffff",
+                        backgroundColor: "#999999",
+                        webkitBorderRadius: "9px",
+                        mozBorderRadius: "9px",
+                        borderRadius: "9px",
+                        backgroundColor: "#b94a48"}}>{name}</span>
+        </div>
+      ))}
     </Layout>
   )
 }
@@ -56,14 +73,32 @@ query($slug: ID!) {
 
   tictic {
     getItem(itemId: $slug) {
+      itemId
       name
-      description
+      nameOthers
       slug
+      description
+      cardImage {
+        imageId
+        baseUrl
+        thumbUrl
+      }
+      cardLocation
       images {
         imageId
         baseUrl
       }
-      itemId
+      locations {
+        locationId
+        name
+        nameDisplay
+        country
+      }
+      tags {
+        tagId
+        name
+        displayOrder
+      }
     }
   }
 }

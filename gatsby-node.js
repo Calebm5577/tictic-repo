@@ -36,10 +36,28 @@ exports.createPages = async ({ graphql, actions }) => {
         nodes {
           itemId
           name
+          nameOthers
           slug
           description
+          cardImage {
+            imageId
+            baseUrl
+            thumbUrl
+          }
+          cardLocation
           images {
             baseUrl
+          }
+          locations {
+            locationId
+            name
+            nameDisplay
+            country
+          }
+          tags {
+            tagId
+            name
+            displayOrder
           }
         }
         totalCount
