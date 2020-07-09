@@ -9,8 +9,10 @@ const DiscoverPage = ({ data, location }) => {
         display: "block",
 		padding: "8px 15px",
 		textDecoration: "none",
-		fontWeight: "bold",
-		color: "black"
+        fontWeight: "bold",
+        fontSize: "30px",
+        color: "white",
+        textShadow: "2px 2px 2px #000000",
     }
     const items = [];
     while (items.length < 5) {
@@ -29,7 +31,7 @@ const DiscoverPage = ({ data, location }) => {
             <ul style = {{listStyle: "none"}}>
                 {items.map((value, index) => {
                     return (
-                        <li key={index}><a style = {a} href = {`/${value.itemId}`}>{value.name}</a></li>
+                        <li style = {{backgroundImage: `url(${value.cardImage.baseUrl + value.cardImage.imageId})`, borderRadius: "10px", height: "200px", }} key={index}><a style = {a} href = {`/${value.itemId}`}>{value.name}</a></li>
                     )
                 })}
             </ul>
