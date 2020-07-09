@@ -5,11 +5,8 @@ import { rhythm, scale } from "../utils/typography"
 
 const Navbar = ({ locations, titles, childrens }) => {
     const rootPath = `${__PATH_PREFIX__}/`
-    let header
-
-    if (locations.pathname === rootPath) {
-        header = (
-        <h1>
+    let header = (
+        <h1 style = {{fontSize: "50px"}}>
             <Link
             style={{
                 boxShadow: `none`,
@@ -21,23 +18,7 @@ const Navbar = ({ locations, titles, childrens }) => {
             {titles}
             </Link>
         </h1>
-        )
-    } else {
-        header = (
-        <h3>
-            <Link
-            style={{
-                boxShadow: `none`,
-                color: `#001344`,
-                textDecoration: `none`
-            }}
-            to={`/`}
-            >
-            {titles}
-            </Link>
-        </h3>
-        )
-    }
+    )
     const nav = {
         width: "100%",
         float: "left",
