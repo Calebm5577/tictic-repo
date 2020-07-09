@@ -60,12 +60,12 @@ const Navbar = ({ locations, titles, childrens }) => {
         <div>
             <header style = {{textAlign: "center",}}>{header}</header>
             <ul style = {nav}>
-                <li style = {li}><a style = {a} href="#">Home</a></li>
-                <li style = {li}><a style = {a} href="#">Discover</a></li>
-                <li style = {li}><a style = {a} href="#">Browse</a></li>
-                <li style = {li}><a style = {a} href="#">Blog</a></li>
-                <li style = {li}><a style = {a} href="#">Contact</a></li>
-                <li style = {li}><a style = {a} href="#">About</a></li>
+                <li style = {li}><a style = {a} href="/">Home</a></li>
+                <li style = {li}><a style = {a} href="/discover">Discover</a></li>
+                <li style = {li}><a style = {a} href="/browse">Browse</a></li>
+                <li style = {li}><a style = {a} href="/blog">Blog</a></li>
+                <li style = {li}><a style = {a} href="/contact">Contact</a></li>
+                <li style = {li}><a style = {a} href="/about">About</a></li>
             </ul>
         </div>
     )
