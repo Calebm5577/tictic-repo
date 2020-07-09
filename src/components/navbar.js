@@ -64,7 +64,7 @@ const Navbar = ({ locations, titles, childrens }) => {
                 <li style = {li}><a style = {a} href="/discover">Discover</a></li>
                 <li style = {li}><a style = {a} href="/browse">Browse</a></li>
                 <li style = {li}><a style = {a} href="/blog">Blog</a></li>
-                <li style = {li}><a style = {a} href="/contact">Contact</a></li>
+                <li style = {li}><a style = {a} href="/faq">FAQ</a></li>
                 <li style = {li}><a style = {a} href="/about">About</a></li>
             </ul>
         </div>
