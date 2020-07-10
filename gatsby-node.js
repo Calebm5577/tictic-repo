@@ -62,6 +62,25 @@ exports.createPages = async ({ graphql, actions }) => {
         }
         totalCount
       }
+      lists(input:{first:10, skip: 0}) {
+        nodes {
+          listId
+          title
+          description
+          image {
+            imageId
+            baseUrl
+          }
+          items{
+            itemId
+            name
+            images {
+              imageId
+              baseUrl
+            }
+          }
+        }
+      }
     }
   }
   `)
@@ -87,6 +106,15 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/item.js`),
       context: {
         slug: result.data.tictic.items.nodes[i].itemId,
+      },
+    })
+  }
+  for (let i = 0; i < 10; i++) {
+    createPage({
+      path: result.data.tictic.lists.nodes[i].listId,
+      component: path.resolve(`./src/templates/list.js`),
+      context: {
+        slug: result.data.tictic.lists.nodes[i].listId,
       },
     })
   }

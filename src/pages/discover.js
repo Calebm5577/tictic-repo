@@ -14,11 +14,11 @@ const DiscoverPage = ({ data, location }) => {
         color: "white",
         textShadow: "2px 2px 2px #000000",
     }
-    const items = [];
-    while (items.length < 5) {
-        let randItem = Math.floor(Math.random() * 10);
-        if(items.indexOf(data.tictic.items.nodes[randItem]) === -1) {
-            items.push(data.tictic.items.nodes[randItem]);
+    const lists = [];
+    while (lists.length < 5) {
+        let randList = Math.floor(Math.random() * 10);
+        if(lists.indexOf(data.tictic.lists.nodes[randList]) === -1) {
+            lists.push(data.tictic.lists.nodes[randList]);
         }
     }
 
@@ -29,9 +29,9 @@ const DiscoverPage = ({ data, location }) => {
                 Discover
             </h2>
             <ul style = {{listStyle: "none"}}>
-                {items.map((value, index) => {
+                {lists.map((value, index) => {
                     return (
-                        <li style = {{backgroundImage: `url(${value.cardImage.baseUrl + value.cardImage.imageId})`, borderRadius: "10px", height: "200px", }} key={index}><a style = {a} href = {`/${value.itemId}`}>{value.name}</a></li>
+                        <a style = {a} href = {`/${value.listId}`}><li style = {{backgroundImage: `url(${value.image.baseUrl + value.image.imageId})`, borderRadius: "10px", height: "200px", textAlign: "center"}} key={index}>{value.title}</li></a>
                     )
                 })}
             </ul>
@@ -59,6 +59,17 @@ export const pageQuery = graphql`
                     baseUrl
                     thumbUrl
                 }
+            }
+        }
+        lists(input:{first:10, skip: 0}) {
+            nodes {
+                listId
+                title
+                image {
+                    imageId
+                    baseUrl
+                }
+                itemsCount
             }
         }
     }
