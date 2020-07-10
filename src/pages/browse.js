@@ -21,7 +21,7 @@ const BrowsePage = ({ data, location }) => {
           items.push(data.tictic.items.nodes[randItem]);
       }
   }
-
+  
   return (
       <Layout location={location} title={siteTitle}>
           <SEO title="All posts" />
