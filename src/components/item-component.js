@@ -38,7 +38,7 @@ const APOLLO_QUERY = gql`
 `
 
 const ItemComponent = (prop) => {
-  const { loading, error, data } = useQuery(APOLLO_QUERY, { variables: { itemId: prop.itemId } });
+  const { data } = useQuery(APOLLO_QUERY, { variables: { itemId: prop.itemId } });
   return (
     <div>
       <article>
@@ -71,7 +71,6 @@ const ItemComponent = (prop) => {
                         fontWeight: "bold",
                         whiteSpace: "nowrap",
                         color: "#ffffff",
-                        backgroundColor: "#999999",
                         webkitBorderRadius: "9px",
                         mozBorderRadius: "9px",
                         borderRadius: "9px",

@@ -50,7 +50,6 @@ const ItemTemplate = ({ data, location }) => {
                         fontWeight: "bold",
                         whiteSpace: "nowrap",
                         color: "#ffffff",
-                        backgroundColor: "#999999",
                         webkitBorderRadius: "9px",
                         mozBorderRadius: "9px",
                         borderRadius: "9px",

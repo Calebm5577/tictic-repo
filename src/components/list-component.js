@@ -26,7 +26,7 @@ const APOLLO_QUERY = gql`
 `
 
 const ListComponent = (prop) => {
-  const { loading, error, data } = useQuery(APOLLO_QUERY, { variables: { listId: prop.listId } });
+  const { data } = useQuery(APOLLO_QUERY, { variables: { listId: prop.listId } });
   return (
     <div>
       <article>

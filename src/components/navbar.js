@@ -1,10 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import { rhythm, scale } from "../utils/typography"
-
 const Navbar = ({ locations, titles, childrens }) => {
-    const rootPath = `${__PATH_PREFIX__}/`
     let header = (
         <h1 style = {{fontSize: "50px"}}>
             <Link
