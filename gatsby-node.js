@@ -93,7 +93,7 @@ exports.createPages = async ({ graphql, actions }) => {
   let items = await getItems(graphql, itemsCount)
 
   for(let item of items){
-    let urlFullPath = `item/${item.itemId}/${item.slug ?? ''}`
+    //let urlFullPath = `item/${item.itemId}/${item.slug ?? ''}`
     let urlMatchPath = `item/${item.itemId}/*`
 
     let page = {
@@ -114,7 +114,7 @@ exports.createPages = async ({ graphql, actions }) => {
   let lists = await getLists(graphql, itemsCount)
 
   for(let list of lists){
-    let urlFullPath = `list/${list.listId}/${list.slug ?? ''}`
+    //let urlFullPath = `list/${list.listId}/${list.slug ?? ''}`
     let urlMatchPath = `list/${list.listId}/*`
 
     let page = {

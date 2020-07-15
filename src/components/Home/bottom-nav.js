@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import "../../CSS/styles.scss"
+import { Link } from 'gatsby'
 
 export class Bottom extends Component {
     render() {
@@ -7,9 +8,9 @@ export class Bottom extends Component {
             <div className="main-container">
                 <div className="main-container-titles">
                         <ul><h1 className="main-container-title">Quick Links</h1>
-                            <li>Home</li>
-                            <li>Contact Us</li>
-                            <li>Privacy Policy</li>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/contact">Contact Us</Link></li>
+                            <li><Link to="/privacypolicy">Privacy Policy</Link></li>
                         </ul>
 
                         <ul> <h1 className="main-container-title">Download</h1>
