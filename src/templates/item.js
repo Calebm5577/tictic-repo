@@ -9,10 +9,10 @@ const ItemTemplate = ({ data, location }) => {
   const item = data.tictic.getItem
   const siteTitle = data.site.siteMetadata.title
   let imageSrc = ""
-  if (item.images[0] === undefined) {
+  if (item.cardImage == null) {
     imageSrc = "./globe.jpg"
   } else {
-    imageSrc = item.images[0].baseUrl + item.images[0].imageId
+    imageSrc = item.cardImage.cardUrl
   }
   return (
     <Layout location={location} title={siteTitle}>
@@ -37,7 +37,9 @@ const ItemTemplate = ({ data, location }) => {
           }}
         />
       </article>
-      <img src = {imageSrc} alt="" />
+      <div>
+        <img src={imageSrc || ''} alt="" />
+      </div>
       <h3>{item.name}</h3>
       <h3>{item.nameOthers}</h3>
       <h4>{item.cardLocation}</h4>
@@ -63,7 +65,7 @@ const ItemTemplate = ({ data, location }) => {
 export default ItemTemplate
 
 export const query = graphql`
-query($slug: ID!) {
+query($itemId: ID!) {
   site {
     siteMetadata {
       title
@@ -71,22 +73,18 @@ query($slug: ID!) {
   }
 
   tictic {
-    getItem(itemId: $slug) {
+    getItem(itemId: $itemId) {
       itemId
       name
       nameOthers
       slug
       description
       cardImage {
-        imageId
-        baseUrl
         thumbUrl
+        cardUrl
+        dynamicUrl
       }
       cardLocation
-      images {
-        imageId
-        baseUrl
-      }
       locations {
         locationId
         name

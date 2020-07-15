@@ -16,7 +16,7 @@ const ListTemplate = ({ data, location }) => {
       />
       <article>
         <header>
-          <img src={list.image.baseUrl + list.image.imageId} alt={list.title} />
+          <img src={list.image?.dynamicUrl?.replace('[WIDTH]', 400)?.replace('[HEIGHT]', 265) || ''} alt={list.title} />
           <h1
             style={{
               marginTop: rhythm(1),
@@ -32,9 +32,9 @@ const ListTemplate = ({ data, location }) => {
           }}
         />
       </article>
-      {list.items.map(({ itemId, name, images }) => (
+      {list.items.map(({ itemId, name, cardImage }) => (
         <div key={itemId}>
-          <img src={images[0].baseUrl + images[0].imageId} alt="" />
+          <img src={cardImage?.thumbUrl || ''} alt="" />
           <h3>{name}</h3>
         </div>
       ))}
@@ -42,10 +42,11 @@ const ListTemplate = ({ data, location }) => {
   )
 }
 
+
 export default ListTemplate
 
 export const query = graphql`
-query($slug: ID!) {
+query($listId: ID!) {
   site {
     siteMetadata {
       title
@@ -53,19 +54,19 @@ query($slug: ID!) {
   }
 
   tictic {
-    getList(listId: $slug) {
+    getList(listId: $listId) {
       title
       description
       image {
-        imageId
-        baseUrl
+        dynamicUrl
       }
       items{
         itemId
         name
-        images {
-          imageId
-          baseUrl
+        cardImage {
+          thumbUrl
+          cardUrl
+          dynamicUrl
         }
       }
     }
