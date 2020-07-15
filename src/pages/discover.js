@@ -31,7 +31,7 @@ const DiscoverPage = ({ data, location }) => {
             <ul style = {{listStyle: "none"}}>
                 {lists.map((value, index) => {
                     return (
-                        <a style = {a} href = {`/${value.listId}`}><li style = {{backgroundImage: `url(${value.image.baseUrl + value.image.imageId})`, borderRadius: "10px", height: "200px", textAlign: "center"}} key={index}>{value.title}</li></a>
+                        <a style = {a} href = {`/list/${value.listId}`}><li style = {{backgroundImage: `url(${value.image.baseUrl + value.image.imageId})`, borderRadius: "10px", height: "200px", textAlign: "center"}} key={index}>{value.title}</li></a>
                     )
                 })}
             </ul>

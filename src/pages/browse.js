@@ -32,7 +32,7 @@ const BrowsePage = ({ data, location }) => {
             <ul style = {{listStyle: "none"}}>
                 {items.map((value, index) => {
                     return (
-                        <a style = {a} href = {`/${value.itemId}`}><li style = {{backgroundImage: `url(${value.cardImage.baseUrl + value.cardImage.imageId})`, borderRadius: "10px", height: "200px", }} key={index}>{value.name}</li></a>
+                        <a style = {a} href = {`/item/${value.itemId}`}><li style = {{backgroundImage: `url(${value.cardImage.baseUrl + value.cardImage.imageId})`, borderRadius: "10px", height: "200px", }} key={index}>{value.name}</li></a>
                     )
                 })}
             </ul>
