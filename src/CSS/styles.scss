@@ -1,4 +1,8 @@
 //Header
+html {
+
+}
+
 .Header {
     display: flex;
     justify-content: space-evenly;
@@ -39,7 +43,7 @@ main {
     flex-direction: column;
     justify-content: flex-end;
     //height: 150vh;
-    border: 3px solid red;
+    border: 1px solid white;
 }
 
 
@@ -280,6 +284,7 @@ main {
             width: 50%;
             align-self: center;
             border: 1px solid black;
+            margin-bottom: 2%;
 
             &-h1 {
                 align-self: center;
@@ -341,6 +346,7 @@ main {
     margin-left: 2%;
     margin-top: 5%;
     margin-bottom: 5%;
+    box-shadow: 0 10px 20px rgb(0,0,.2);
 
     &-index{
         display: flex;
@@ -509,4 +515,19 @@ main {
         align-items: center;
     }
 }
+}
+
+//Ipad and kindle responsiveness
+
+@media only screen and (min-width: 700px) and (max-width: 1300px) {
+
+  .Extrafeatures {
+
+    &-secondary {
+
+        &-text {
+            width: 80%;
+        }
+    }
+  }
 }

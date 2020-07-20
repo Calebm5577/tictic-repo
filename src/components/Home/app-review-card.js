@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import person1 from "../../images/myself.jpg"
 
+
+
+
 export class Appreviewcard extends Component {
+    
     render() {
+
+       
         return (
             <div className="Appreviewcard">
                 <div className="Appreviewcard-main">

@@ -14,8 +14,19 @@ import Appreviewcard from '../components/Home/app-review-card'
 import Header from '../components/Home/header'
 
 
+
+
+
 const PageIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
+  
+  
+  function appcardWasClicked(e) {
+      const element = e.target;
+      console.log(e.target);
+      
+  }
+  
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -29,9 +40,9 @@ const PageIndex = ({ data, location }) => {
       <Extrafeatures />
       <Appreview />
       <div className="Appreviewcard-index">
-      <Appreviewcard />
-      <Appreviewcard />
-      <Appreviewcard />
+        <Appreviewcard/>
+        <Appreviewcard/>
+        <Appreviewcard/>
       </div>
       <Bottom />
     </Layout>
